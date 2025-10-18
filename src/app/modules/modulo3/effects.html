@@ -1,0 +1,51 @@
+  <div class="effects-container">
+      <h2>Módulo 3 - Effects Avanzados</h2>
+      
+      <!-- Estado del volumen -->
+      <div class="volumen-display">
+        <div class="volumen-bar">
+          <div 
+            class="volumen-fill" 
+            [style.width.%]="volumen()"
+            [class.peligroso]="volumen() > 80"
+          ></div>
+        </div>
+        <p>Volumen: <strong>{{ volumen() }}%</strong></p>
+      </div>
+
+      <!-- Estado del sistema -->
+      <div class="sistema-estados">
+        <div class="estado-item">
+          <span>🔄 Estado:</span>
+          <span [class.guardando]="estadoGuardado() === 'Guardando...'">
+            {{ estadoGuardado() }}
+          </span>
+        </div>
+        <div class="estado-item">
+          <span>⏰ Último guardado:</span>
+          <span>{{ ultimoGuardado() }}</span>
+        </div>
+        <div class="estado-item" *ngIf="advertencia()">
+          <span>⚠️ Advertencia:</span>
+          <span class="advertencia-texto">{{ advertencia() }}</span>
+        </div>
+      </div>
+
+      <!-- Controles -->
+      <div class="controles">
+        <button (click)="aumentar()" class="btn btn-primary">▲ +10</button>
+        <button (click)="disminuir()" class="btn btn-secondary">▼ -10</button>
+        <button (click)="silenciar()" class="btn btn-warning">🔇 Silenciar</button>
+        <button (click)="volumenMaximo()" class="btn btn-danger">🔊 Máximo</button>
+      </div>
+
+      <!-- Historial -->
+      <div class="historial" *ngIf="historial().length > 0">
+        <h3>📊 Historial de cambios</h3>
+        <ul>
+          <li *ngFor="let item of historial(); let i = index">
+            {{ item }}
+          </li>
+        </ul>
+      </div>
+    </div>

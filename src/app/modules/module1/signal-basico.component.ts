@@ -31,16 +31,13 @@ export class SignalBasicoComponent {
     // 2. ACTUALIZAR signals
     incrementar() {
         // FORMA 1: update (deriva del valor actual)
-        this.contador.update(valorActual => valorActual + 1);
+        // this.contador.update(valorActual => valorActual + 1);
+        this.contador.update((v) => Math.min(v + 1, 100))
     }
 
     decrementar() {
-        this.contador.update((valorActual) => {
-            if(valorActual > 0){
-                valorActual - 1;
-            }
-            return valorActual;
-        });
+        // this.contador.update((v) => v > 0 ? v - 1 : v)
+        this.contador.update((v) => Math.max(v - 1, 0))
     }
 
     reset() {
