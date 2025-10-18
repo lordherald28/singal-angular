@@ -1,9 +1,75 @@
-<div>
+<!-- <div>
   <nav class="nav">
     <a class="nav-item" routerLink="/">Home</a>
     <a class="nav-item" routerLink="/module1/contador">Módulo 1: Signals Básicos | Contador</a>
     <a class="nav-item" routerLink="/module1/volumen">Módulo 1: Signals Básicos | Volumen</a>
     <a class="nav-item" routerLink="/module2/volumen-mejorado">Módulo 2: Computed</a>
+    <a class="nav-item" routerLink="/module3/effect-">Módulo 3: Effects Basico</a>
   </nav>
   <router-outlet></router-outlet>
+</div> -->
+
+<div class="app-container">
+  <!-- SIDEBAR -->
+  <div class="sidebar">
+    <div class="sidebar-header">
+      <h2>🚀 Angular Signals</h2>
+      <p>Curso Práctico</p>
+    </div>
+
+    <nav class="sidebar-nav">
+      <ul>
+        <li>
+          <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+            🏠 Home
+          </a>
+        </li>
+        <li class="nav-section">Nivel Básico</li>
+        <li>
+          <a routerLink="/modulo1-signals" routerLinkActive="active">
+            📊 Módulo 1: Signals Básicos
+          </a>
+        </li>
+        <li>
+          <a routerLink="/modulo1-contador" routerLinkActive="active">
+            🔢 Módulo 1: Contador
+          </a>
+        </li>
+        <li>
+          <a routerLink="/modulo2-volumen" routerLinkActive="active">
+            🔊 Módulo 2: Computed
+          </a>
+        </li>
+        <li>
+          <a routerLink="/modulo3-effects-basico" routerLinkActive="active">
+            ⚡ Módulo 3: Effects - Basico
+          </a>
+        </li>
+        <li>
+          <a routerLink="/modulo3-effects-case-real" routerLinkActive="active">
+            ⚡ Módulo 3: Effects - Caso Real
+          </a>
+        </li>
+        <li>
+          <a routerLink="/modulo3-effects-tarea" routerLinkActive="active">
+            ⚡ Módulo 3: Effects Tarea
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+    <div class="sidebar-footer">
+      <div class="progress">
+        <div class="progress-bar">
+          <div class="progress-fill" [style.width.%]="progreso"></div>
+        </div>
+        <span>Progreso: {{ progreso }}%</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- CONTENIDO PRINCIPAL -->
+  <div class="content">
+    <router-outlet></router-outlet>
+  </div>
 </div>
